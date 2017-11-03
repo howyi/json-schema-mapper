@@ -1,0 +1,11 @@
+{
+  "title": "サカナ",
+  "enum": ["マグロ", "ブリ", "サンマ", "サバ", "イワシ"],
+  "enumNames": [
+      "MAGURO",
+      "BURI",
+      "SANMA",
+      "SABA",
+      "IWASHI"
+  ]
+}

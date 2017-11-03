@@ -1,0 +1,83 @@
+{
+  "title": "寿司情報",
+  "type": "object",
+  "definitions": {
+    "sushiType2": {
+      "title": "寿司タイプx",
+      "enum": ["ネタです", "シャリです"],
+      "enumNames": [
+          "NETADESU",
+          "SHARIDESU"
+      ]
+    }
+  },
+  "properties": {
+    "sushiId": {
+      "title": "寿司ID",
+      "type": "integer"
+    },
+    "sushiName": {
+      "title": "寿司の名",
+      "type": "string"
+    },
+    "eatable": {
+      "title": "食べられるか",
+      "type": "boolean"
+    },
+    "length": {
+      "title": "寿司の長さ",
+      "type": "number"
+    },
+    "osakanaType": {
+      "title": "お魚タイプ",
+      "$ref": "../Osakana.json"
+    },
+    "sushiType": {
+      "title": "寿司タイプ",
+      "enum": ["ネタ", "シャリ"],
+      "enumNames": [
+          "NETA",
+          "SHARI"
+      ]
+    },
+    "sushiType2": {
+      "title": "寿司タイプ2",
+      "$ref": "#/definitions/sushiType2"
+    },
+    "sushiType3": {
+      "title": "寿司タイプ3",
+      "$ref": "#/definitions/sushiType2"
+    },
+    "childSushi": {
+      "title": "子寿司",
+      "$ref": "#"
+    },
+    "nextSushi": {
+      "title": "次の寿司",
+      "$ref": "../second/anotherSushi.json"
+    },
+    "expirationDate": {
+      "title": "消費期限",
+      "type": "string",
+      "format": "date-time"
+    },
+    "lightSushi": {
+      "title" : "かるいすし",
+      "type": "object",
+      "properties": {
+        "lightSushiId": {
+          "title": "ライト寿司ID",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "required": [
+    "sushiId",
+    "sushiName",
+    "eatable",
+    "osakanaType",
+    "expirationDate"
+  ],
+  "additionalProperties": true
+}
