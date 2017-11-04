@@ -10,7 +10,7 @@ use {{ value }};
 {% endif %}
 interface {{ schema.schemaInfo.name }}Interface
 {
-    public function toJsonProperty(): array;
+    public function toJsonArray(): array;
 
     public function jsonProperties(): array;
 
