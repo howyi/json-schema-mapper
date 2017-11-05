@@ -113,7 +113,7 @@ class EnumSchemaFactory
 
             $key = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/u', '_', $key);
 
-            if (is_numeric($key) or is_float($key)) {
+            if (is_numeric(mb_substr($key, 0, 1))) {
                 $key = "E_$key";
             }
             $key = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/u', '_', $key);
