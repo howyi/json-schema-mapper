@@ -50,6 +50,19 @@ class TypeInfo
         return $hint;
     }
 
+    public function returnHint()
+    {
+        if (empty($this->hint())) {
+            return '';
+        }
+        $hint = ': ';
+        if (!$this->isRequired()) {
+            $hint .= '?';
+        }
+        $hint .= $this->type;
+        return $hint;
+    }
+
     public function comment()
     {
         return $this->comment;

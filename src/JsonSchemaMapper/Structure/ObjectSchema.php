@@ -39,8 +39,12 @@ class ObjectSchema
         $params = [];
         for ($i = 0; $i < count($this->typeList); $i++) {
             $type = $this->typeList[$i];
-            $param = $type->hint() . ' ';
-            $param .= '$' . $type->name();
+
+            if (empty($type->hint())) {
+                $param = '$' . $type->name();
+            } else {
+                $param =  $type->hint() . ' $' . $type->name();
+            }
 
             if (($i + 1 !== count($this->typeList)) or ($this->addableProperties())) {
                 $param .= ',';

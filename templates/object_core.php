@@ -33,7 +33,7 @@ class {{ schema.schemaInfo.name }} implements {{ schema.schemaInfo.name }}Interf
     }
 {% for type in schema.typeList %}
 
-    public function {{ type.name }}(): {{ type.hint }}
+    public function {{ type.name }}(){{ type.returnHint }}
     {
         return $this->{{ type.name }};
     }

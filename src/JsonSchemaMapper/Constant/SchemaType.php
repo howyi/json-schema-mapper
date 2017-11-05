@@ -70,14 +70,15 @@ class SchemaType extends AbstractEnumeration
     public function getPhpTypeMap(): array
     {
         return [
-            self::NUMBER   => 'float',
-            self::INTEGER  => 'int',
-            self::STRING   => 'string',
-            self::DATETIME => '\DateTimeInterface',
-            self::ARRAY    => 'array',
-            self::BOOLEAN  => 'bool',
-            self::NULL     => 'ExistsNull',
-            self::MIXED    => 'mixed',
+            self::NUMBER    => 'float',
+            self::INTEGER   => 'int',
+            self::STRING    => 'string',
+            self::DATETIME  => '\DateTimeInterface',
+            self::ARRAY     => 'array',
+            self::BOOLEAN   => 'bool',
+            self::NULL      => 'ExistsNull',
+            self::MIXED     => 'mixed',
+            self::UNDEFINED => 'mixed',
         ];
     }
 
