@@ -42,6 +42,8 @@ class ObjectSchemaFactory
                 $phpType = '';
                 $isLocal = true;
                 $refPath = null;
+                $refKeyName = null;
+                $isSelf = false;
                 if (isset($propertySchemaArray['$ref'])) {
                     $ref = $propertySchemaArray['$ref'];
                     [$refArray, $isLocal, $isSelf, $refKeyName, $refPath] = RefPointer::getArray(

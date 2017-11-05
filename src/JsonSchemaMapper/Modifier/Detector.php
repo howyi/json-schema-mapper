@@ -56,8 +56,8 @@ class Detector
         return self::comment($schemaArray) ?? $nameInfo->getClassName();
     }
 
-    public static function comment(array $schemaArray): ?string
+    public static function comment(array $schemaArray): string
     {
-        return $schemaArray['refTitle'] ?? $schemaArray['title'] ?? $schemaArray['description'] ?? null;
+        return $schemaArray['refTitle'] ?? $schemaArray['title'] ?? $schemaArray['description'] ?? '';
     }
 }

@@ -10,14 +10,14 @@ class TypeInfo
     private $isRequired;
 
     /**
-     * @param string      $name
-     * @param string|null $type
-     * @param string      $comment
-     * @param bool        $isRequired
+     * @param string $name
+     * @param string $type
+     * @param string $comment
+     * @param bool   $isRequired
      */
     public function __construct(
         string $name,
-        ?string $type,
+        string $type,
         string $comment,
         bool $isRequired
     ) {
