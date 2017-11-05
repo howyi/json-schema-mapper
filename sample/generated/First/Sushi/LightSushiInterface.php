@@ -4,7 +4,7 @@ namespace Json\First\Sushi;
 
 interface LightSushiInterface
 {
-    public function toJsonProperty(): array;
+    public function toJsonArray(): array;
 
     public function jsonProperties(): array;
 

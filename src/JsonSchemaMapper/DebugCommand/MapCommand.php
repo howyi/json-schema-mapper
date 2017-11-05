@@ -17,9 +17,9 @@ class MapCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         Mapper::map(
-            'build/json',
-            'src/JsonSchemaMapper/Expected',
-            'JsonSchemaMapper\Expected',
+            'sample/json',
+            'sample/generated',
+            'Json',
             'templates'
         );
     }

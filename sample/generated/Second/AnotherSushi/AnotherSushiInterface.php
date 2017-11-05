@@ -6,7 +6,7 @@ use Json\Osakana;
 
 interface AnotherSushiInterface
 {
-    public function toJsonProperty(): array;
+    public function toJsonArray(): array;
 
     public function jsonProperties(): array;
 

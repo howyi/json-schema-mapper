@@ -7,7 +7,7 @@ use Json\Second\AnotherSushi\AnotherSushiInterface;
 
 interface SushiInterface
 {
-    public function toJsonProperty(): array;
+    public function toJsonArray(): array;
 
     public function jsonProperties(): array;
 

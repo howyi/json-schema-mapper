@@ -12,7 +12,8 @@ class Mapper
         string $fromDir,
         string $toDir,
         string $namespace,
-        string $templateDir
+        string $templateDir,
+        array $additionalValues = []
     ): void {
         $loader = new \Twig_Loader_Filesystem($templateDir);
         $twig = new \Twig_Environment($loader);
@@ -20,7 +21,8 @@ class Mapper
         $allFiles = FileFactory::fromAllSchemaList(
             $twig,
             $toDir,
-            SchemaDirFactory::fromDir($fromDir, $namespace)
+            SchemaDirFactory::fromDir($fromDir, $namespace),
+            $additionalValues
         );
 
         FileReflector::reflect($toDir, $allFiles);
