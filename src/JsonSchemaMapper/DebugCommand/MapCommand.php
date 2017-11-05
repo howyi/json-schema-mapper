@@ -5,9 +5,7 @@ namespace JsonSchemaMapper\DebugCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use JsonSchemaMapper\Factory\SchemaDirFactory;
-use JsonSchemaMapper\Factory\FileFactory;
-use JsonSchemaMapper\Reflector\FileReflector;
+use JsonSchemaMapper\Mapper;
 
 class MapCommand extends Command
 {
@@ -18,15 +16,11 @@ class MapCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $loader = new \Twig_Loader_Filesystem('templates');
-        $twig = new \Twig_Environment($loader);
-
-        $allFiles = FileFactory::fromAllSchemaList(
-            $twig,
-            'sample/generated',
-            SchemaDirFactory::fromDir('sample/json', 'Json')
+        Mapper::map(
+            'build/json',
+            'src/JsonSchemaMapper/Expected',
+            'JsonSchemaMapper\Expected',
+            'templates'
         );
-
-        FileReflector::reflect($allFiles);
     }
 }

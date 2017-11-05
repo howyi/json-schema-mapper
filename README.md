@@ -2,14 +2,10 @@
 Json-Schema Object|Enum to PHP classes
 
 ```php
-$loader = new \Twig_Loader_Filesystem('templates');
-$twig = new \Twig_Environment($loader);
-
-$allFiles = FileFactory::fromAllSchemaList(
-    $twig,
+\JsonSchemaMapper\Mapper::map(
+    'sample/json',
     'sample/generated',
-    SchemaDirFactory::fromDir('sample/json', 'Json')
+    'Json',
+    'templates'
 );
-
-FileReflector::reflect($allFiles);
 ```

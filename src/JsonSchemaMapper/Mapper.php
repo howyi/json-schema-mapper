@@ -2,46 +2,27 @@
 
 namespace JsonSchemaMapper;
 
-use JsonSchemaMapper\Factory\SchemaFactory;
-use JsonSchemaMapper\Util\MapClassReflector;
+use JsonSchemaMapper\Factory\SchemaDirFactory;
+use JsonSchemaMapper\Factory\FileFactory;
+use JsonSchemaMapper\Reflector\FileReflector;
 
 class Mapper
 {
     public static function map(
         string $fromDir,
         string $toDir,
-        string $namespace
+        string $namespace,
+        string $templateDir
     ): void {
+        $loader = new \Twig_Loader_Filesystem($templateDir);
+        $twig = new \Twig_Environment($loader);
 
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($fromDir)
+        $allFiles = FileFactory::fromAllSchemaList(
+            $twig,
+            $toDir,
+            SchemaDirFactory::fromDir($fromDir, $namespace)
         );
 
-        $allSchemaList = [];
-        foreach ($iterator as $fileinfo) {
-            if (!$fileinfo->isFile()) {
-                continue;
-            }
-            $pathinfo = pathinfo($fileinfo->getFilename());
-            if (!isset($pathinfo['extension']) or empty($pathinfo['filename'])) {
-                continue;
-            }
-            if (strtolower($pathinfo['extension']) !== 'json') {
-                continue;
-            }
-            $path = $fileinfo->getRealpath();
-            $contents = file_get_contents($path);
-            $schemaArray = json_decode($contents, true);
-            if (is_null($schemaArray)) {
-                continue;
-            }
-            $schemaList = SchemaFactory::fromSchema(
-                realpath($fromDir),
-                $path,
-                $namespace,
-                $schemaArray
-            );
-            $allSchemaList += $schemaList;
-        }
+        FileReflector::reflect($toDir, $allFiles);
     }
 }
