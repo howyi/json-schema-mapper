@@ -2,6 +2,8 @@
 
 namespace JsonSchemaMapper\Factory;
 
+use Howyi\Evi;
+
 class SchemaDirFactory
 {
     public static function fromDir(
@@ -25,8 +27,7 @@ class SchemaDirFactory
                 continue;
             }
             $path = $fileinfo->getRealpath();
-            $contents = file_get_contents($path);
-            $schemaArray = json_decode($contents, true);
+            $schemaArray = Evi::parse($path, true, null);
             if (is_null($schemaArray)) {
                 continue;
             }
