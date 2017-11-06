@@ -17,7 +17,7 @@ trait ObjectTrait
             }
             $array[$method] = Getter::value($value);
         }
-        if ($this->addableJsonProperty()) {
+        if ($this->allowAdditionalProperties()) {
             $array += $this->additionalProperties();
         }
         return $array;

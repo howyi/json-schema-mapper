@@ -15,7 +15,7 @@ trait {{ schema.schemaInfo.name }}Trait
         ];
     }
 
-    public function addableJsonProperty(): bool
+    public function allowAdditionalProperties(): bool
     {
         return {{ schema.addableProperties ? 'true' : 'false' }};
     }

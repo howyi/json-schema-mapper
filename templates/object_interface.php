@@ -14,7 +14,7 @@ interface {{ schema.schemaInfo.name }}Interface
 
     public function jsonProperties(): array;
 
-    public function addableJsonProperty(): bool;
+    public function allowAdditionalProperties(): bool;
 {% for type in schema.typeList %}
 
     public function {{ type.name }}(){{ type.returnHint }};
