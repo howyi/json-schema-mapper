@@ -15,7 +15,7 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
             <exclude>
-                <directory>./src/JsonSchemaMapper/DebugCommand</directory>
+                <directory>./src/JsonSchemaMapper/Command</directory>
                 <directory>./src/JsonSchemaMapper/Expected</directory>
             </exclude>
         </whitelist>

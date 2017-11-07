@@ -16,25 +16,25 @@ class MapCommand extends Command
         ->setName('map')
         ->setDescription('JSON Schema dir map to PHP Classes.')
         ->addArgument(
-          'jsonDir',
-          InputArgument::REQUIRED,
-          'JSON Schame directory'
+            'jsonDir',
+            InputArgument::REQUIRED,
+            'JSON Schame directory'
         )
         ->addArgument(
-          'phpDir',
-          InputArgument::REQUIRED,
-          'Map destination directory'
+            'phpDir',
+            InputArgument::REQUIRED,
+            'Map destination directory'
         )
         ->addArgument(
-          'namespace',
-          InputArgument::REQUIRED,
-          'Map PHP namespace'
+            'namespace',
+            InputArgument::REQUIRED,
+            'Map PHP namespace'
         )
         ->addArgument(
-          'template',
-          InputArgument::OPTIONAL,
-          'PHP templates directory',
-          __DIR__ . '/../../../templates'
+            'template',
+            InputArgument::OPTIONAL,
+            'PHP templates directory',
+            __DIR__ . '/../../../templates'
         );
     }
 
