@@ -1,5 +1,8 @@
 MAKEFLAGS += --no-print-directory
 
+map:
+	./bin/jsm map sample/json sample/generated Json
+
 test:
 	@./vendor/bin/phpunit
 stan:

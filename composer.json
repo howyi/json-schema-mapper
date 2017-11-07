@@ -30,5 +30,6 @@
         "squizlabs/php_codesniffer": "^3.0",
         "symfony/var-dumper":        "^3.3",
         "satooshi/php-coveralls":    "^1.0"
-    }
+    },
+    "bin": ["bin/jsm"]
 }
