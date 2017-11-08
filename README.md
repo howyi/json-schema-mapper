@@ -8,11 +8,3 @@ composer require howyi/json-schema-mapper
 ```bash
 ./vendor/bin/jsm map [jsonDir] [phpDir] [namespace] [templatePath]
 ```
-```php
-\JsonSchemaMapper\Mapper::map(
-    'sample/json',
-    'sample/generated',
-    'Json',
-    'templates'
-);
-```
