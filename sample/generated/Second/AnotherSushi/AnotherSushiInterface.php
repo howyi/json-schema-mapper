@@ -10,7 +10,7 @@ interface AnotherSushiInterface
 
     public function jsonProperties(): array;
 
-    public function addableJsonProperty(): bool;
+    public function allowAdditionalProperties(): bool;
 
     public function anotherSushiId(): ?int;
 

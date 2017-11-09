@@ -20,7 +20,7 @@ trait AnotherSushiTrait
         ];
     }
 
-    public function addableJsonProperty(): bool
+    public function allowAdditionalProperties(): bool
     {
         return false;
     }

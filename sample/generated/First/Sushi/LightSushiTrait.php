@@ -13,7 +13,7 @@ trait LightSushiTrait
         ];
     }
 
-    public function addableJsonProperty(): bool
+    public function allowAdditionalProperties(): bool
     {
         return true;
     }

@@ -11,7 +11,7 @@ interface SushiInterface
 
     public function jsonProperties(): array;
 
-    public function addableJsonProperty(): bool;
+    public function allowAdditionalProperties(): bool;
 
     public function sushiId(): int;
 
