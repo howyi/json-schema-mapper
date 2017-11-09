@@ -3,7 +3,7 @@
 # json-schema-mapper
 JSON Schema Object|Enum to PHP classes
 
-document: https://howyi.gitbooks.io/json-schema-mapper/content/ja/
+document: https://jsm.niwatori.tech/ja/
 
 ```bash
 composer require howyi/json-schema-mapper
