@@ -6,19 +6,8 @@ class FileReflector
 {
     public static function reflect(string $toDir, array $allFiles): void
     {
-        if (file_exists($toDir)) {
-            $iterator = new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator($toDir)
-            );
-            foreach ($iterator as $fileinfo) {
-                if ($fileinfo->isFile()) {
-                    unlink($fileinfo->getPathName());
-                }
-            }
-            // TODO DIRECTORY DELETE
-        } else {
-            mkdir($toDir, 0777, true);
-        }
+        self::deleteRecursive($toDir);
+        mkdir($toDir, 0777, true);
         foreach ($allFiles as $filePath => $content) {
             $dirPath = dirname($filePath);
             if (!file_exists($dirPath)) {
@@ -26,5 +15,24 @@ class FileReflector
             }
             file_put_contents($filePath, $content);
         }
+    }
+
+    public static function deleteRecursive(string $dir): void
+    {
+        if (!file_exists($dir)) {
+            return;
+        }
+        foreach (new \DirectoryIterator($dir) as $fileInfo) {
+            if ($fileInfo->isDot()) {
+                continue;
+            }
+            if ($fileInfo->isFile() or $fileInfo->isLink()) {
+                unlink($fileInfo->getPathName());
+            }
+            if ($fileInfo->isDir()) {
+                self::deleteRecursive($fileInfo->getPathName());
+            }
+        }
+        rmdir($dir);
     }
 }
