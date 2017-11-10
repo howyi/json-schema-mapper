@@ -54,7 +54,13 @@ class ObjectSchemaFactory
                     $propertySchemaArray += $refArray;
                 }
 
-                $type = Detector::schemaType($propertySchemaArray);
+                if (is_array($propertySchemaArray)) {
+                    $type = Detector::schemaType($propertySchemaArray);
+                    $comment = Detector::comment($propertySchemaArray);
+                } else {
+                    $type = SchemaType::UNDEFINED();
+                    $comment = '';
+                }
 
                 if ($type->isSingleType()) {
                     $phpType = $type->getPhpType();
@@ -98,7 +104,7 @@ class ObjectSchemaFactory
                 $typeInfoList[] = new TypeInfo(
                     $key,
                     $phpType,
-                    Detector::comment($propertySchemaArray),
+                    $comment,
                     in_array($key, $requiredKeys, true)
                 );
 
