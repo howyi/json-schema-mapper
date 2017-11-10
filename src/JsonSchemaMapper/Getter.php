@@ -28,7 +28,7 @@ class Getter
         if ($value instanceof \DateTimeInterface) {
             return $value->format(DATE_RFC3339);
         }
-        if (is_null($value) or $value instanceof ExistsNull) {
+        if (is_null($value) or $value instanceof ExistenceNullInterface) {
             return null;
         }
         if ($value instanceof EnumerationInterface) {

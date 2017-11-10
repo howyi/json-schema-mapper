@@ -2,6 +2,6 @@
 
 namespace JsonSchemaMapper;
 
-class ExistsNull
+interface ExistenceNullInterface
 {
 }

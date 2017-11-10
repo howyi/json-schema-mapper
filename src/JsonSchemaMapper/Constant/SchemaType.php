@@ -76,7 +76,7 @@ class SchemaType extends AbstractEnumeration
             self::DATETIME  => '\DateTimeInterface',
             self::ARRAY     => 'array',
             self::BOOLEAN   => 'bool',
-            self::NULL      => 'ExistsNull',
+            self::NULL      => 'ExistenceNullInterface',
             self::MIXED     => 'mixed',
             self::UNDEFINED => 'mixed',
         ];

@@ -109,7 +109,7 @@ class ObjectSchemaFactory
                 );
 
                 if ($type == SchemaType::NULL()) {
-                    $useList[] = 'JsonSchemaMapper\ExistsNull';
+                    $useList[] = 'JsonSchemaMapper\ExistenceNullInterface';
                 }
             }
         }
