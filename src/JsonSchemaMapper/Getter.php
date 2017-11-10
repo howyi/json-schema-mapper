@@ -4,6 +4,7 @@ namespace JsonSchemaMapper;
 
 use Eloquent\Enumeration\EnumerationInterface;
 use JsonSchemaMapper\JsonArrayAccess;
+use JsonSchemaMapper\JsonArrayAccessException;
 
 class Getter
 {
@@ -27,7 +28,7 @@ class Getter
         if ($value instanceof \DateTimeInterface) {
             return $value->format(DATE_RFC3339);
         }
-        if ($value instanceof ExistsNull) {
+        if (is_null($value) or $value instanceof ExistsNull) {
             return null;
         }
         if ($value instanceof EnumerationInterface) {
@@ -36,6 +37,11 @@ class Getter
         if ($value instanceof JsonArrayAccess) {
             return $value->toJsonArray();
         }
-        // TODO: ERROR
+        throw new JsonArrayAccessException(
+            sprintf(
+                '%s is not JSON Array accessible class.',
+                get_class($value)
+            )
+        );
     }
 }
