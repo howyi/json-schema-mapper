@@ -74,6 +74,6 @@ class AnotherSushi implements AnotherSushiInterface
 
     public function expirationDate(): \DateTimeInterface
     {
-        return $this->expirationDate;
+        return clone $this->expirationDate;
     }
 }

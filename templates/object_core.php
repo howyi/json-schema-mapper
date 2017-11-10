@@ -35,7 +35,7 @@ class {{ schema.schemaInfo.name }} implements {{ schema.schemaInfo.name }}Interf
 
     public function {{ type.name }}(){{ type.returnHint }}
     {
-        return $this->{{ type.name }};
+        return {{ type.returnName | raw }};
     }
 {% endfor %}
 {% if schema.addableProperties %}

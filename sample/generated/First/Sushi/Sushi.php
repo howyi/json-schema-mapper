@@ -105,7 +105,7 @@ class Sushi implements SushiInterface
 
     public function expirationDate(): \DateTimeInterface
     {
-        return $this->expirationDate;
+        return clone $this->expirationDate;
     }
 
     public function lightSushi(): ?LightSushiInterface

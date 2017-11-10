@@ -32,6 +32,15 @@ class TypeInfo
         return $this->name;
     }
 
+    public function returnName()
+    {
+        $name = '$this->' . $this->name();
+        if ('\DateTimeInterface' === $this->type()) {
+            $name = 'clone ' . $name;
+        }
+        return $name;
+    }
+
     public function type()
     {
         return $this->type;
