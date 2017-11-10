@@ -7,6 +7,7 @@ class FileReflector
     public static function reflect(string $toDir, array $allFiles): void
     {
         self::deleteRecursive($toDir);
+        clearstatcache();
         mkdir($toDir, 0777, true);
         clearstatcache();
         foreach ($allFiles as $filePath => $content) {
@@ -31,11 +32,13 @@ class FileReflector
             }
             if ($fileInfo->isFile() or $fileInfo->isLink()) {
                 unlink($fileInfo->getPathName());
+                clearstatcache();
             }
             if ($fileInfo->isDir()) {
                 self::deleteRecursive($fileInfo->getPathName());
             }
         }
+        clearstatcache();
         rmdir($dir);
     }
 }
