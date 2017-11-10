@@ -8,7 +8,7 @@ use {{ value }};
 {% endfor %}
 
 {% endif %}
-class {{ schema.schemaInfo.name }} implements {{ schema.schemaInfo.name }}Interface, \JsonSerializable
+class {{ schema.schemaInfo.name }} implements {{ schema.schemaInfo.name }}Interface
 {
     use {{ schema.schemaInfo.name }}Trait;
 

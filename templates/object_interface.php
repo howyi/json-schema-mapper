@@ -2,13 +2,11 @@
 
 namespace {{ schema.schemaInfo.namespace }};
 
-{% if schema.useList|length >= 1 %}
-{% for value in schema.useList %}
+{% for value in schema.interfaceUseList %}
 use {{ value }};
 {% endfor %}
 
-{% endif %}
-interface {{ schema.schemaInfo.name }}Interface
+interface {{ schema.schemaInfo.name }}Interface extends JsonArrayAccess, \JsonSerializable
 {
     public function toJsonArray(): array;
 

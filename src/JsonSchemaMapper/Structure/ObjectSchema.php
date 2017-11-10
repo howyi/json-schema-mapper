@@ -31,7 +31,16 @@ class ObjectSchema
 
     public function useList()
     {
-        return $this->useList;
+        $useList = $this->useList;
+        sort($useList, SORT_STRING);
+        return $useList;
+    }
+
+    public function interfaceUseList()
+    {
+        $useList = array_merge($this->useList(), ['JsonSchemaMapper\JsonArrayAccess']);
+        sort($useList, SORT_STRING);
+        return $useList;
     }
 
     public function constructParam()
