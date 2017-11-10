@@ -56,4 +56,4 @@ sample/generated/
 
 ### 注釈 {#annnotation}
 - nullをセットしたい場合
-  - `\JsonSchemaMapper\ExistsNull` という空のクラスを渡すことでnullをセットすることが出来る
+  - `\JsonSchemaMapper\ExistenceNull` という空のクラスを渡すことでnullをセットすることが出来る

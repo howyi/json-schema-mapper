@@ -54,4 +54,4 @@ sample/generated/
 
 ### annotation {#annnotation}
 - When you want to set null
-  - set constructer to `\JsonSchemaMapper\ExistsNull`
+  - set constructer to `\JsonSchemaMapper\ExistenceNull`
