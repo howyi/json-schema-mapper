@@ -3,6 +3,7 @@
 namespace JsonSchemaMapper;
 
 use Eloquent\Enumeration\EnumerationInterface;
+use JsonSchemaMapper\JsonArrayAccess;
 
 class Getter
 {
@@ -32,6 +33,9 @@ class Getter
         if ($value instanceof EnumerationInterface) {
             return $value->value();
         }
-        return $value->toJsonArray();
+        if ($value instanceof JsonArrayAccess) {
+            return $value->toJsonArray();
+        }
+        // TODO: ERROR
     }
 }
