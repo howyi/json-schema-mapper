@@ -17,8 +17,11 @@ trait ObjectTrait
             }
             $array[$method] = Getter::value($value);
         }
-        if ($this->allowAdditionalProperties()) {
-            $array += $this->additionalProperties();
+        if (!$this->allowAdditionalProperties()) {
+            return $array;
+        }
+        foreach ($this->additionalProperties() as $key => $value) {
+            $array[$key] = Getter::value($value);
         }
         return $array;
     }
