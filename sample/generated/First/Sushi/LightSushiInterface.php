@@ -2,7 +2,9 @@
 
 namespace Json\First\Sushi;
 
-interface LightSushiInterface
+use JsonSchemaMapper\JsonArrayAccess;
+
+interface LightSushiInterface extends JsonArrayAccess, \JsonSerializable
 {
     public function toJsonArray(): array;
 

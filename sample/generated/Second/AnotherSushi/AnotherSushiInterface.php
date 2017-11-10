@@ -2,9 +2,10 @@
 
 namespace Json\Second\AnotherSushi;
 
+use JsonSchemaMapper\JsonArrayAccess;
 use Json\Osakana;
 
-interface AnotherSushiInterface
+interface AnotherSushiInterface extends JsonArrayAccess, \JsonSerializable
 {
     public function toJsonArray(): array;
 

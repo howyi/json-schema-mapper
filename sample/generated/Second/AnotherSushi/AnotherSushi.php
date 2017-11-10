@@ -4,7 +4,7 @@ namespace Json\Second\AnotherSushi;
 
 use Json\Osakana;
 
-class AnotherSushi implements AnotherSushiInterface, \JsonSerializable
+class AnotherSushi implements AnotherSushiInterface
 {
     use AnotherSushiTrait;
 

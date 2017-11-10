@@ -2,7 +2,7 @@
 
 namespace Json\First\Sushi;
 
-class LightSushi implements LightSushiInterface, \JsonSerializable
+class LightSushi implements LightSushiInterface
 {
     use LightSushiTrait;
 
