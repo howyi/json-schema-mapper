@@ -8,12 +8,15 @@ class FileReflector
     {
         self::deleteRecursive($toDir);
         mkdir($toDir, 0777, true);
+        clearstatcache();
         foreach ($allFiles as $filePath => $content) {
             $dirPath = dirname($filePath);
             if (!file_exists($dirPath)) {
                 mkdir($dirPath, 0777, true);
+                clearstatcache();
             }
             file_put_contents($filePath, $content);
+            clearstatcache();
         }
     }
 
